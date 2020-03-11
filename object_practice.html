@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <title>Word Storer App</title>
+    </head>
+
+
+    <body>
+        <div>
+            <h3>
+                Let's create an object that stores input and then joins it together
+            </h3>
+            <!--
+                This will basically just accept input, add it to a running store of input,
+                and display the input somewhere
+            -->
+        </div>
+        
+        
+        <div>
+            <!--This stuff is the meat of the html-->
+            <label>Add a new word to the collection:</label>
+            <input id='input'/>
+            <button id="add-button">Add</button>
+        </div>
+
+
+        <!--Always better to use CSS vs breaks, but this is hacking...-->
+        <br/>
+        <br/>
+        
+
+        <!--This is an invisible box that's going to be the output for your word collection-->
+        <label>words:</label>
+        <div id="word-collection" class="collection"></div>
+
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <button id='test-button'>Run Tests</button>
+        <div id='test-results'></div>
+
+        <!-- #&$@&$%@*$@* JAVASCRIPT STUFF *#@&@#$&@$#@-->
+        <script>
+            // go ahead and set variables for all of the HTML elements, we are gonna use
+            // these to set event handlers, get values, etc.
+            let inputElement = document.getElementById('input');
+            let addButtonElement = document.getElementById('add-button');
+            let wordCollectionElement = document.getElementById('word-collection')
+            
+
+            // This is the stub for an object called WordStore
+            // WordStore has two functions, the ability to add a new word to an existing
+            // list of words, and the ability to return a string made up of the words joined together
+            class WordStore {
+                    
+                // we're going to use a constructor to initalize a list of words
+                constructor(){
+                    // ADD CODE HERE
+                }
+
+                // add word function accepts a word and adds it to a running tally of words
+                addWord(word){
+                    // ADD CODE HERE
+                }
+
+                // return word string will just return a joined list of the words in the format:
+                // "word1, word2, word3"
+                returnWordsString(){
+                    // ADD CODE HERE AND CHANGE THE RETURN VALUE
+                    return ''
+                }
+
+                // this method will clear the words list, which needs to be reflected 
+                // in the UI, when the clear button is clicked, the list should disappear and 
+                // start over again
+                clearWords(){
+                    // ADD CODE HERE
+                }
+            }
+
+            // This is where we create an instance of the word store object
+            let store = new WordStore();
+
+
+            // functions needed to manipulate the HTML
+            let addButtonClick = function(){
+                // using the object, this adds the value of the input into the list of words
+                store.addWord(inputElement.value);
+
+                // clears the input value
+                inputElement.value = '';
+                
+                // sets the collection element to the value of the stored words
+                wordCollectionElement.innerHTML = store.returnWordsString();
+            }
+
+
+            // this is where we take our HTML stuff like buttons and change their event handlers
+            addButtonElement.onclick = addButtonClick;
+        </script>
+        <script src="./test_runner.js"></script>
+        
+        
+
+        <!-- Just some CSS being CSS, 
+            you can ignore unless you want to make everything red and flashy-->
+        <style type="text/css">
+            h3 {
+                color: green
+            }
+
+            .collection {
+                display: flex;
+                flex-direction: row;
+            }
+            
+        </style>
+    </body>
+</html>
