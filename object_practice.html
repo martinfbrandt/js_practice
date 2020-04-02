@@ -7,7 +7,7 @@
     <body>
         <div>
             <h3>
-                Let's create an object that stores input and then joins it together
+                Hello, Let's create an object that stores input and then joins it together
             </h3>
             <!--
                 This will basically just accept input, add it to a running store of input,
@@ -21,6 +21,7 @@
             <label>Add a new word to the collection:</label>
             <input id='input'/>
             <button id="add-button">Add</button>
+            <button id="clear-button">Clear</button>
         </div>
 
 
@@ -49,7 +50,7 @@
             let inputElement = document.getElementById('input');
             let addButtonElement = document.getElementById('add-button');
             let wordCollectionElement = document.getElementById('word-collection')
-            
+            let clearButtonElement = document.getElementById('clear-button')
 
             // This is the stub for an object called WordStore
             // WordStore has two functions, the ability to add a new word to an existing
@@ -59,25 +60,31 @@
                 // we're going to use a constructor to initalize a list of words
                 constructor(){
                     // ADD CODE HERE
+                    this.aList = [];
                 }
 
                 // add word function accepts a word and adds it to a running tally of words
                 addWord(word){
-                    // ADD CODE HERE
+                   // ADD CODE HERE
+                   this.aList.push(word);
                 }
 
                 // return word string will just return a joined list of the words in the format:
                 // "word1, word2, word3"
                 returnWordsString(){
                     // ADD CODE HERE AND CHANGE THE RETURN VALUE
-                    return ''
+                   let currentList = this.aList.join(', ');
+                   return currentList;
                 }
 
                 // this method will clear the words list, which needs to be reflected 
                 // in the UI, when the clear button is clicked, the list should disappear and 
                 // start over again
                 clearWords(){
+                    this.aList=[''];
+                    return this.aList;
                     // ADD CODE HERE
+
                 }
             }
 
@@ -97,9 +104,13 @@
                 wordCollectionElement.innerHTML = store.returnWordsString();
             }
 
-
+            let clearButtonClick = function(){
+                wordCollectionElement.innerHTML = store.clearWords();
+            }
             // this is where we take our HTML stuff like buttons and change their event handlers
             addButtonElement.onclick = addButtonClick;
+           clearButtonElement.onclick = clearButtonClick;
+
         </script>
         <script src="./test_runner.js"></script>
         
