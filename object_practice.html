@@ -59,20 +59,20 @@
                     
                 // we're going to use a constructor to initalize a list of words
                 constructor(){
-                    // ADD CODE HERE
+       
                     this.aList = [];
                 }
 
                 // add word function accepts a word and adds it to a running tally of words
                 addWord(word){
-                   // ADD CODE HERE
+                   
                    this.aList.push(word);
                 }
 
                 // return word string will just return a joined list of the words in the format:
                 // "word1, word2, word3"
                 returnWordsString(){
-                    // ADD CODE HERE AND CHANGE THE RETURN VALUE
+                    
                    let currentList = this.aList.join(', ');
                    return currentList;
                 }
@@ -83,7 +83,7 @@
                 clearWords(){
                     this.aList=[''];
                     return this.aList;
-                    // ADD CODE HERE
+               
 
                 }
             }
@@ -99,6 +99,20 @@
 
                 // clears the input value
                 inputElement.value = '';
+                // ############################################################################################
+                // Part 2: Modify the output of this collection to show a line with each of the words separated by a border
+                //
+                // ex: Add words: 'one', 'two', 'three'
+                //
+                // displays like:      one
+                //                  ----------
+                //                     two
+                //                  ---------
+                //                    three
+                //
+                // Note: this solution will use some CSS props (check out border) and should have every line be a separate 
+                // HTML element instead of one big Text element or something. It should support infinite word additions
+                // ######################################################################################
                 
                 // sets the collection element to the value of the stored words
                 wordCollectionElement.innerHTML = store.returnWordsString();
