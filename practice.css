@@ -4,7 +4,19 @@
   }
 
   .collection {
-      display: flex;
+        display: flex;
       flex-direction: row;
-  }
+      flex-flow: row wrap;
+      align-content: space-between;
+      justify-content: space-between;
+      }
+.line-break {
+    width: 100%;
+      
+}
+.line-dash {
+    width: 50px;
+    border-bottom: black dotted;
+}
+ 
             

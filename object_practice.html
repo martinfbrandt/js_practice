@@ -74,7 +74,7 @@
                 // "word1, word2, word3"
                 returnWordsString(){
                     
-                   let currentList = this.aList.join(', ');
+                   let currentList = this.aList.join('<div class="line-break"><div class="line-dash"></div></div>');
                    return currentList;
                 }
 
@@ -100,6 +100,7 @@
 
                 // clears the input value
                 inputElement.value = '';
+                
                 // ############################################################################################
                 // Part 2: Modify the output of this collection to show a line with each of the words separated by a border
                 //
@@ -117,6 +118,7 @@
                 
                 // sets the collection element to the value of the stored words
                 wordCollectionElement.innerHTML = store.returnWordsString();
+               // wordCollectionElement.innerHTML.style.borderBottom = "thin dotted black";
             }
 
             let clearButtonClick = function(){
